@@ -66,7 +66,7 @@ class MastermindGameTest extends TestCase
     public function test_validation_error_when_guessed_color_is_not_valid()
     {
         $object = new Mastermind();
-        $object->setGuessedColorCode([]);
+        $object->setGuessedColorPattern([]);
         $this->assertInstanceOf(MessageBag::class, $object->getHints());
         $this->assertTrue(isset($object->getHints()->messages()['guessed_code'][0]));
     }
@@ -74,7 +74,7 @@ class MastermindGameTest extends TestCase
     public function test_guess_colors_cannot_be_custom_colors_out_of_dataset()
     {
         $object = new Mastermind();
-        $object->setGuessedColorCode(['black', 'green', 'brown', 'white']);
+        $object->setGuessedColorPattern(['black', 'green', 'brown', 'white']);
         $this->assertInstanceOf(MessageBag::class, $object->getHints());
         $this->assertTrue(isset($object->getHints()->messages()['guessed_code'][0]));
     }
@@ -82,15 +82,15 @@ class MastermindGameTest extends TestCase
     public function test_guessed_color_can_be_defined()
     {
         $object = new Mastermind();
-        $object->setGuessedColorCode(['red','blue','gold', 'black']);
-        $this->assertEquals(['red','blue','gold', 'black'], $object->getGuessedColorCode());
+        $object->setGuessedColorPattern(['red','blue','gold', 'black']);
+        $this->assertEquals(['red','blue','gold', 'black'], $object->getGuessedColorPattern());
     }
 
     public function test_game_exact_feedback()
     {
         $object = new Mastermind();
         $object->setSecretColorPattern(['black','white','orange', 'gold']);
-        $object->setGuessedColorCode(['black','white','orange', 'gold']);
+        $object->setGuessedColorPattern(['black','white','orange', 'gold']);
         $this->assertEquals(['black', 'black', 'black', 'black'], $object->getHints());
     }
 
@@ -98,7 +98,7 @@ class MastermindGameTest extends TestCase
     {
         $object = new Mastermind();
         $object->setSecretColorPattern(['black','white','orange', 'gold']);
-        $object->setGuessedColorCode(['white', 'black', 'gold', 'orange']);
+        $object->setGuessedColorPattern(['white', 'black', 'gold', 'orange']);
         $this->assertEquals(['white', 'white', 'white', 'white'], $object->getHints());
     }
 
@@ -106,7 +106,7 @@ class MastermindGameTest extends TestCase
     {
         $object = new Mastermind();
         $object->setSecretColorPattern(['red','blue','green', 'purple']);
-        $object->setGuessedColorCode(['white', 'black', 'gold', 'orange']);
+        $object->setGuessedColorPattern(['white', 'black', 'gold', 'orange']);
         $this->assertEquals(['', '', '', ''], $object->getHints());
     }
 
@@ -114,7 +114,7 @@ class MastermindGameTest extends TestCase
     {
         $object = new Mastermind();
         $object->setSecretColorPattern(['red','blue','green', 'purple']);
-        $object->setGuessedColorCode(['black', 'red', 'gold', 'green']);
+        $object->setGuessedColorPattern(['black', 'red', 'gold', 'green']);
         $this->assertEquals(['', 'white', '', 'white'], $object->getHints());
     }
 
@@ -122,7 +122,7 @@ class MastermindGameTest extends TestCase
     {
         $object = new Mastermind();
         $object->setSecretColorPattern(['black','white','blue', 'orange']);
-        $object->setGuessedColorCode(['black', 'blue', 'gold', 'green']);
+        $object->setGuessedColorPattern(['black', 'blue', 'gold', 'green']);
         $this->assertEquals(['black', 'white', '', ''], $object->getHints());
     }
 

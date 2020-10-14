@@ -12,14 +12,14 @@ class Mastermind
     use ColorsDataSetGenerator;
 
     private array $colorList;
-    private array $guessedColorCode;
-    public array $secretColorCode;
+    private array $guessedColorPattern;
+    private array $secretColorPattern;
 
     public function __construct()
     {
-        $this->guessedColorCode = [];
+        $this->guessedColorPattern = [];
         $this->colorList = $this->getColorsArray();
-        $this->secretColorCode = $this->getRandomColorIndexesValues(4);
+        $this->secretColorPattern = $this->getRandomColorIndexesValues(4);
     }
 
     public function getColorsDataSet() : array
@@ -29,30 +29,30 @@ class Mastermind
 
     public function setSecretColorPattern(array $pattern)
     {
-        $this->secretColorCode = $pattern;
+        $this->secretColorPattern = $pattern;
     }
 
     public function getSecretColorPattern()  : array
     {
-        return $this->secretColorCode;
+        return $this->secretColorPattern;
     }
 
-    public function setGuessedColorCode(array $guessedColorCode)
+    public function setGuessedColorPattern(array $guessedColorPattern)
     {
-        $this->guessedColorCode = $guessedColorCode;
+        $this->guessedColorPattern = $guessedColorPattern;
     }
 
-    public function getGuessedColorCode() : array
+    public function getGuessedColorPattern() : array
     {
-        return $this->guessedColorCode;
+        return $this->guessedColorPattern;
     }
 
     public function getHints()
     {
         $validator = Validator::make(
             [
-                'guessed_code' => $this->guessedColorCode,
-                'secret_code' => $this->secretColorCode
+                'guessed_code' => $this->guessedColorPattern,
+                'secret_code' => $this->secretColorPattern
             ],
             [
                 'guessed_code' => [
@@ -80,7 +80,7 @@ class Mastermind
         $codeMakerSecretCode = $this->getSecretColorPattern();
 
         //compare guessed code with secret code
-        foreach($this->guessedColorCode as $k => $v) {
+        foreach($this->guessedColorPattern as $k => $v) {
             if (isset($codeMakerSecretCode[$k]) && $codeMakerSecretCode[$k] == $v) {
                 $feedback[] = 'black';
                 unset($codeMakerSecretCode[$k]);
