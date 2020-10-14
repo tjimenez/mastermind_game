@@ -56,7 +56,6 @@ class MastermindTerminalGame extends Command
 
         // CodeMaker create code pattern, duplicates are allowed.
         $this->codeMakerSecretPattern = $this->codeMakerSecretPattern  ?? $this->getRandomValuesFromArray($this->colorsDataset, 4);
-//        dump($this->codeMakerSecretPattern);
 
         // CodeBreaker tries to guess the pattern
         $attempt = $this->getCodeBreakerSecretAttemptResponseValidated();
