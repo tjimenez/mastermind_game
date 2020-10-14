@@ -31,7 +31,7 @@ You should now see a nice message in the terminal like this:
 
 ## Running the tests
 
-Once you had run the installer you may test the project using the following artisan command
+Once you have run the installer you may test the project using the following artisan command
 ```
 php artisan test
 ```
