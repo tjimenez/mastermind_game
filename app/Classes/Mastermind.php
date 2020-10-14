@@ -42,11 +42,12 @@ class Mastermind
         $this->guessedColorCode = $guessedColorCode;
     }
 
-    public function getGuessedColorCode() : array {
+    public function getGuessedColorCode() : array
+    {
         return $this->guessedColorCode;
     }
 
-    public function getHints()
+    public function getHints() : array
     {
         $validator = Validator::make(
             [
