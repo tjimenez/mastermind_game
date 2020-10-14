@@ -37,6 +37,7 @@ php artisan test
 ```
 
 If everything is ok, you should see the following result:
+
 ![Test Result](test_result.png)
 
 ## Authors
