@@ -37,6 +37,26 @@ class MastermindTerminalGame extends Command
      */
     public function handle()
     {
-        return 0;
+        // resources
+            // big colorful pegs for computer || guest
+            // small black and white pegs for computer
+
+        // workflow
+            // 1 -  computer/codemaker choose 4 code pegs
+                // duplicates are allowed (add levels of dificulties)
+                // this selection is hidden from code breaker until the game finish or he decodes the pattern
+
+            // 2 - guest/codebreaker tries to guess the pattern
+            // 3 - codemaker provides feedback placing ±4 pegs on the row related to the guesses.
+                // black peg when code from guess are correct in both, color and position
+                // white peg when code from guess are correct in color but wrong in position
+                // the order for small pegs are not important
+
+            // result: build a function that takes a list of 4 colors and returns a list of 0‐4 black/white results.
+
+        // ideas
+            // difficulty level levels (easy medium difficult)
+            // change mode ( codebreaker || codemaker )
+            // add more color options 4!=8
     }
 }
