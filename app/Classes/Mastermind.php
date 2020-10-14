@@ -47,7 +47,7 @@ class Mastermind
         return $this->guessedColorCode;
     }
 
-    public function getHints() : array
+    public function getHints()
     {
         $validator = Validator::make(
             [
